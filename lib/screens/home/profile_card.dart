@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fuel_calculator/models/profile/profile.dart';
+import 'package:fuel_calculator/routes/router.gr.dart';
 
 class ProfileCard extends StatelessWidget {
 
@@ -12,10 +13,10 @@ class ProfileCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0.0),
+      margin: EdgeInsets.fromLTRB(13.0, 13.0, 13.0, 5.0),
       child: ListTile(
         onTap: () {
-//          dynamic result = Navigator.pushNamed(context, '/profiler');
+          navigateToCalculator(context, this.profile);
         },
         title: Text(
           this.profile.name,
@@ -27,7 +28,6 @@ class ProfileCard extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Container(
-//                color: Colors.orangeAccent,
               child: IconButton(
                 icon: Icon(Icons.edit, color: Colors.orangeAccent),
                 onPressed: edit
@@ -35,7 +35,6 @@ class ProfileCard extends StatelessWidget {
             ),
             SizedBox(width: 7.69420),
             Container(
-//                color: Colors.redAccent,
               child: IconButton(
                 icon: Icon(Icons.close, color: Colors.redAccent),
                 onPressed: delete,
@@ -46,4 +45,8 @@ class ProfileCard extends StatelessWidget {
       ),
     );
   }
+}
+
+void navigateToCalculator(BuildContext context, Profile profile) {
+  Router.navigator.pushNamed(Router.calculatorScreen, arguments: profile);
 }
