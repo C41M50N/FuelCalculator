@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fuel_calculator/models/profile/profile.dart';
 import 'package:fuel_calculator/screens/profiler/profiler_form.dart';
-import 'package:fuel_calculator/screens/profiler/profiler_form2.dart';
 
 class Profiler extends StatefulWidget {
   final bool newProfile;
